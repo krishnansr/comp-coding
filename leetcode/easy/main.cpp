@@ -14,7 +14,7 @@ int main()
     cout<<"hello world!"<<endl;
     cout<<"hello world!!"<<endl;
     cout<<"hello world!!!"<<endl;
-    cout<<"end of world"<<endl;
+    cout<<"end of world :|"<<endl;
     
     // system("pause");
     return 0;
