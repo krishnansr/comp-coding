@@ -10,8 +10,8 @@ class Solution:
             digit1 = 0 if i > len1 else num1[-i]
             digit2 = 0 if i > len2 else num2[-i]
 
-            sum = int(digit1) + int(digit2) + carry
-            carry, digit = sum // 10, sum % 10
+            add_val = int(digit1) + int(digit2) + carry
+            carry, digit = add_val // 10, add_val % 10
             res = str(digit) + res
 
         if carry:
