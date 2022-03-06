@@ -1,8 +1,6 @@
-import numpy as np
-
 class Solution:
     def thirdMax(self, nums: List[int]) -> int:
-        min_value = -np.inf
+        min_value = float("-inf")
         max1 = max2 = res = min_value
 
         for i in nums:
