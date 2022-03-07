@@ -1,2 +1,2 @@
 # comp-coding
-Scratch repo to add leetcode, hackerrank scratch files
+Tracker repo to add leetcode, hackerrank scratch files
