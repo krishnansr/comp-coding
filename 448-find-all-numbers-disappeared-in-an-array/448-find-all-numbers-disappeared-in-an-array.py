@@ -4,4 +4,5 @@ class Solution:
         for i in nums:
             if i in rem_nums:
                 rem_nums.remove(i)
+        
         return list(rem_nums)
