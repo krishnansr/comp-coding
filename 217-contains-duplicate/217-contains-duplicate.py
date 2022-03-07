@@ -6,4 +6,5 @@ class Solution:
                 return True
             else:
                 num_set.add(i)
+        
         return False
