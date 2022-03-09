@@ -6,9 +6,8 @@ class Solution:
         for day in prices[1:]:
             if day < buy:
                 buy = day
-            _profit = day - buy
-    
-            if _profit > profit_stonks:
-                profit_stonks = _profit  # new profit stonks /|/^
+                continue
+            elif day - buy > profit_stonks:
+                profit_stonks = day - buy  # new profit stonks /|/^
 
         return profit_stonks
