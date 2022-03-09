@@ -9,4 +9,5 @@ class Solution:
             else:
                 ans.append(ans[-1] + 1)
             even = ~even
+            
         return ans
