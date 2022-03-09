@@ -3,11 +3,12 @@ class Solution:
         ans = [0]
         
         even = False
+        _append = ans.append  # for time imp.
         for i in range(1, n + 1):
             if even:
-                ans.append(ans[i // 2])
+                _append(ans[i // 2])
             else:
-                ans.append(ans[-1] + 1)
+                _append(ans[-1] + 1)
             even = ~even
             
         return ans
