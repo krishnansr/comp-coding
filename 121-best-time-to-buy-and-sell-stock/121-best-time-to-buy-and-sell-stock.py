@@ -7,6 +7,8 @@ class Solution:
             if day < buy:
                 buy = day
             _profit = day - buy
-            profit_stonks = max(profit_stonks, _profit)
+    
+            if _profit > profit_stonks:
+                profit_stonks = _profit  # new profit stonks /|/^
 
         return profit_stonks
