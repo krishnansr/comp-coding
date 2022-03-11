@@ -4,7 +4,7 @@ class Solution:
             return n
         
         count = 0
-        for base in range(ceil(log2(n))+1):
+        for _ in range(ceil(log2(n))+1):
             count += n & 1
             n >>= 1
 
