@@ -1,6 +1,7 @@
 class Solution:
     def check(self, nums: List[int]) -> bool:
         inc_count = 0
+        
         prev_num = nums[0]
         for curr_num in nums[1:]:
             if curr_num < prev_num:
