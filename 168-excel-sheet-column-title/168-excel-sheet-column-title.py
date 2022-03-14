@@ -5,5 +5,6 @@ class Solution:
             num -= 1
             title = chr(num % 26 + 65) + title
             num = num // 26
+            
         return title
 
