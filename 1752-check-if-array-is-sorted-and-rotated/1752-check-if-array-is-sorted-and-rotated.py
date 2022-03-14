@@ -8,4 +8,4 @@ class Solution:
                 inc_count += 1
             prev_num = curr_num
             
-        return (inc_count == 0) or (inc_count == 1 and nums[-1] <= nums[0])
+        return (inc_count == 0) or (inc_count == 1 and curr_num <= nums[0])
