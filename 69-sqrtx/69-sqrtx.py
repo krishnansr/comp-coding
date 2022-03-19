@@ -3,5 +3,4 @@ class Solution:
         
         if x < 2:
             return x
-        
         return floor(round(exp(log(x) / 2), 8))
