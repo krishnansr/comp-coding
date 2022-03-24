@@ -1,7 +1,8 @@
 class Solution:
-    log_four = log10(4)
-    
     def isPowerOfFour(self, n: int) -> bool:
+        return n > 0 and (n & (n-1) == 0) and (n.bit_length() & 1)
+        
+    def isPowerOfFour_log(self, n: int) -> bool:
         if n < 1:
             return False
-        return (log10(n) / self.log_four).is_integer()
+        return (log10(n) / log10(4)).is_integer()
