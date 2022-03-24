@@ -5,6 +5,5 @@ class Solution:
         
         for factor in [10, 9, 8, 6, 5, 4, 3, 2]:
             while n % factor == 0:
-                n /= factor
-                
+                n /= factor     
         return n == 1
