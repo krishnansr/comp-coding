@@ -12,5 +12,4 @@ class Solution:
         
         self._update_dist(s, c, short_dist, direction=1)
         self._update_dist(s, c, short_dist, direction=-1)
-
         return short_dist
