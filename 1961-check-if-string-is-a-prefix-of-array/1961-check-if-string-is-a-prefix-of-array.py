@@ -9,5 +9,4 @@ class Solution:
             
             if pos == len(s):
                 return True
-        
         return False
