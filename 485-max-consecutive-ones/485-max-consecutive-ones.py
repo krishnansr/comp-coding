@@ -7,6 +7,7 @@ class Solution:
             else:
                 count = max(count, curr)
                 curr = 0
+                
         return count
         
     def findMaxConsecutiveOnes_map(self, nums: List[int]) -> int:
