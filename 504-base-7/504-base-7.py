@@ -1,13 +1,9 @@
 class Solution:
     def convertToBase7(self, num: int) -> str:
-        if not num:
-            return str(num)
-        
-        sign, num = num < 0, abs(num)
-        res, carry = '', 0
+        sign, num, res = num < 0, abs(num), ''
         while num:
-            num, carry = num // 7, num % 7
-            res = str(carry) + res
+            res = str(num % 7) + res
+            num //= 7
 
-        return '-' * sign + res
+        return '-' * sign + res or "0"
             
