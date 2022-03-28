@@ -1,6 +1,7 @@
 class Solution:
     def convertToBase7(self, num: int) -> str:
-        sign, num, res = num < 0, abs(num), ''
+        sign = num < 0
+        num, res = abs(num), ''
         
         while num:
             res = str(num % 7) + res
