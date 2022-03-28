@@ -8,5 +8,6 @@ class Solution:
         while num:
             num, carry = num // 7, num % 7
             res = str(carry) + res
+
         return '-' * sign + res
             
