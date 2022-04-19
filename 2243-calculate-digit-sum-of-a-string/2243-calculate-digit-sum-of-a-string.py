@@ -5,4 +5,5 @@ class Solution:
                                         for i in range(0, len(s), k)]))
         else:
             new_s = s
+        
         return self.digitSum(new_s, k) if len(new_s) > k else new_s
