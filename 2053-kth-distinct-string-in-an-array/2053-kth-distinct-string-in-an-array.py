@@ -1,5 +1,18 @@
 class Solution:
     def kthDistinct(self, arr: List[str], k: int) -> str:
+        dist_map = {}
+        for word in arr:
+            dist_map[word] = dist_map.get(word, 0) + 1
+        
+        for word in arr:
+            if dist_map[word] == 1:
+                k -= 1
+            if k == 0:
+                return word
+        return ''
+        
+        
+    def kthDistinct_ordered_dict(self, arr: List[str], k: int) -> str:
         dist_map = OrderedDict()
         
         for word in arr:
