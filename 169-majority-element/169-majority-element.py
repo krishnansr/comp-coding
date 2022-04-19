@@ -5,6 +5,7 @@ class Solution:
             if diff_count == 0:
                 res = n
             diff_count += (1 if res == n else -1)
+        
         return res
         
     def majorityElement_desc(self, nums: List[int]) -> int:
