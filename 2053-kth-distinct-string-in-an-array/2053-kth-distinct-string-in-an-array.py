@@ -7,7 +7,7 @@ class Solution:
         for word in arr:
             if dist_map[word] == 1:
                 k -= 1
-            if k == 0:
+            if k == 0:  # reached res
                 return word
             
         return ''
