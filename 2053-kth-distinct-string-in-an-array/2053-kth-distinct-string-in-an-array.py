@@ -1,6 +1,7 @@
 class Solution:
     def kthDistinct(self, arr: List[str], k: int) -> str:
         dist_map = {}
+        
         for word in arr:
             dist_map[word] = dist_map.get(word, 0) + 1
         
