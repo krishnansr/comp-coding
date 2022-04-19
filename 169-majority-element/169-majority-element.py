@@ -1,5 +1,14 @@
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
+        res, diff_count = 0, 0
+        for n in nums:
+            if diff_count == 0:
+                res = n
+            diff_count += [-1, 1][res == n]
+        return res
+        
+        
+    def majorityElement_desc(self, nums: List[int]) -> int:
         diff_count = 0
         res = nums[0]
         
