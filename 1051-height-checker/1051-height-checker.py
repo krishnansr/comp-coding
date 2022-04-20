@@ -1,8 +1,8 @@
 class Solution:
-    def heightCheckerr(self, heights: List[int]) -> int:
+    def heightChecker(self, heights: List[int]) -> int:
         return sum([x != y for x, y in zip(heights, sorted(heights))])
     
-    def heightChecker(self, heights: List[int]) -> int:
+    def heightChecker_count_sort(self, heights: List[int]) -> int:
         # using count sort - O(n)
         
         cdf_freq = [0] * max(heights)
