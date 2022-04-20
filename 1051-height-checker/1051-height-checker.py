@@ -13,8 +13,7 @@ class Solution:
         
         cnt = 0
         for h in heights:
-            if heights[cdf_freq[h-1]-1] != h:
-                cnt += 1
+            cnt += heights[cdf_freq[h-1]-1] != h
             cdf_freq[h-1] -= 1
         
         return cnt
