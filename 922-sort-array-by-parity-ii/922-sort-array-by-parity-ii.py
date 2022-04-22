@@ -6,9 +6,9 @@ class Solution:
                 i += 2
             while j < len(nums) and nums[j] & 1 == 1:
                 j += 2
-            else:
-                if i < len(nums) and j < len(nums):
-                    nums[i], nums[j] = nums[j], nums[i]
-                    i += 2
-                    j += 2
+            
+            if i < len(nums) and j < len(nums):
+                nums[i], nums[j] = nums[j], nums[i]
+                i += 2
+                j += 2
         return nums
