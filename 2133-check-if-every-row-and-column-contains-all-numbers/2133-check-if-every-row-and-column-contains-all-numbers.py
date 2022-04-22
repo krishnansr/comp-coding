@@ -7,7 +7,4 @@ class Solution:
             for ind, val in enumerate(row):
                 colsum[ind] += val
         
-        if len(set(colsum)) != 1:
-            return False
-        
-        return True
+        return len(set(colsum)) == 1
