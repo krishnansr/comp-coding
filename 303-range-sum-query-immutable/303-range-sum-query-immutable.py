@@ -1,10 +1,15 @@
 class NumArray:
 
     def __init__(self, nums: List[int]):
-        self.nums = nums
+        self.prefix_sum = [0] * (len(nums) + 1)
+        
+        # generate precalculated sums since this sum function might be 
+        # called around 10k times per array
+        for i, n in enumerate(nums):
+            self.prefix_sum[i + 1] = self.prefix_sum[i] + nums[i]
 
     def sumRange(self, left: int, right: int) -> int:
-        return sum(self.nums[left: right + 1])
+        return self.prefix_sum[right + 1] - self.prefix_sum[left]
 
 
 # Your NumArray object will be instantiated and called as such:
