@@ -12,6 +12,7 @@ class Solution:
                 res[i] = right_val ** 2
                 r -= 1
             i -= 1  # to fill next biggest value
+            
         return res
     
     def sortedSquares_extraspace(self, nums: List[int]) -> List[int]:
