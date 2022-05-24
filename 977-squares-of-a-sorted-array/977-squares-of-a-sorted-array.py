@@ -1,4 +1,5 @@
 class Solution:
+
     def sortedSquares(self, nums: List[int]) -> List[int]:
         res = [0] * len(nums)
         l, r, i = 0, len(nums) - 1, len(nums) - 1
@@ -11,8 +12,7 @@ class Solution:
             else:
                 res[i] = right_val ** 2
                 r -= 1
-            i -= 1  # to fill next biggest value
-            
+            i -= 1  # to fill next biggest value        
         return res
     
     def sortedSquares_extraspace(self, nums: List[int]) -> List[int]:
