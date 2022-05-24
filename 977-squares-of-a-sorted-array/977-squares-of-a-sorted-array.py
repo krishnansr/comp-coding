@@ -2,6 +2,7 @@ class Solution:
     def sortedSquares(self, nums: List[int]) -> List[int]:
         res = [0] * len(nums)
         l, r, i = 0, len(nums) - 1, len(nums) - 1
+        
         while l <= r:
             left_val, right_val = abs(nums[l]), abs(nums[r])
             if left_val > right_val:
