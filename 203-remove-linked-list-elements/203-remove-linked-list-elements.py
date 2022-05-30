@@ -19,4 +19,5 @@ class Solution:
             else:
                 prev_node = _node
             _node = _node.next
+            
         return head
