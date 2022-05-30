@@ -13,4 +13,5 @@ class Solution:
                 return True
             _node.val += 2 * max_val
             _node = _node.next
+            
         return False
