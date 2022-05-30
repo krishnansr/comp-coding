@@ -17,6 +17,8 @@ class Node:
 class LinkedList:
     def __init__(self, dataset=None):
         self.head = None
+        self.tail = None  # todo: extra space - can use this to append at O(1) time, need to update suitable like head
+        self.size = 0  # todo: can use this to get length in const. time, need to update as suitable
 
         if dataset is not None:
             _node = Node(dataset.pop(0))
@@ -132,6 +134,15 @@ class LinkedList:
                 return _node
         raise IndexError(f"Invalid index {index}")
 
+    def reverse(self):
+        prev = None
+        _node = self.head
+        while _node is not None:
+            temp_next = _node.next
+            _node.next = prev
+            prev = _node
+            _node = temp_next
+        self.head = prev  # don't forget to update head
 
 class Solution:
     def fn(self):
@@ -162,6 +173,6 @@ if __name__ == '__main__':
     print(ls.index(1))
     """
 
-    ls.insert(0, 77)
+    ls.reverse()
     print(ls)
     print(ls.length())
