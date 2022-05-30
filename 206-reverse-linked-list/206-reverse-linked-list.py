@@ -12,6 +12,7 @@ class Solution:
             _node.next = prev
             prev = _node
             _node = temp_next
+        
         head = prev
         return head
     
