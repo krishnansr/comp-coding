@@ -9,6 +9,7 @@ class Solution:
         _node2 = head
         while _node1.next is not None:
             _node2 = _node2.next
+            
             if _node1.next.next is None:
                 break
             _node1 = _node1.next.next
