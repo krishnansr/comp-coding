@@ -17,5 +17,4 @@ class Solution:
             head = head.next
         else:
             all_nodes[len(all_nodes) - n - 2].next = all_nodes[len(all_nodes) -n]
-            
         return head
