@@ -5,6 +5,7 @@
 #         self.next = next
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        
         dummy = ListNode(val=-1, next=None)
         res = dummy
         carry = 0
@@ -15,7 +16,6 @@ class Solution:
             _sum = digit1 + digit2 + carry
             carry, digit = _sum // 10, _sum % 10
             
-            # update l1
             res.next = ListNode(val=digit, next=None)
             res = res.next
             l1 = l1.next if l1 else None
