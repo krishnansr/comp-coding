@@ -335,6 +335,19 @@ class Solution:
 
         return [original[n * x : n * x + n] for x in range(m)]
 
+    def peakIndexInMountainArray(self, arr: List[int]) -> int:
+        left, right = 0, len(arr) - 1
+
+        while left <= right:
+            middle = (left + right) // 2
+
+            if arr[middle - 1] < arr[middle]:
+                if arr[middle] > arr[middle + 1]:
+                    return middle
+                left = middle + 1
+            else:
+                right = middle
+        return -1
 
 if __name__ == '__main__':
     s = Solution()
@@ -372,9 +385,7 @@ if __name__ == '__main__':
     # print(s.search([-1,0,3,5,9,12], 9))
     # print(s.sortedSquares([-7,-3,2,3,11]))
     # print(s.backspaceCompare(s = "ab#c", t = "ad#c"))
-    print(s.construct2DArray(original=[1, 2, 3, 4], m=2, n=2))
-    print(s.construct2DArray(original=[1, 2, 3], m=1, n=3))
-    print(s.construct2DArray(original=[1, 2, 3, 4, 5, 6], m=3, n=2))
-    print(s.construct2DArray(original = [1,1,1,1], m = 4, n = 1))
-    print(s.construct2DArray(original = [1,1,1,1], m = 1, n = 4))
+    # print(s.construct2DArray(original=[1, 2, 3, 4], m=2, n=2))
+    print(s.peakIndexInMountainArray(arr = [0,2,1,0]))
+    print(s.peakIndexInMountainArray(arr = [3,4,5,1]))
 

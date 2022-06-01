@@ -4,6 +4,7 @@ from itertools import repeat
 from math import *
 from collections import OrderedDict
 
+
 class Node:
     def __init__(self, data, next=None, prev=None):
         self.data = data
@@ -13,6 +14,7 @@ class Node:
     def __repr__(self):
         return self.data.__repr__()
 
+ListNode = Node
 
 class LinkedList:
     def __init__(self, dataset=None):
@@ -144,20 +146,108 @@ class LinkedList:
             _node = temp_next
         self.head = prev  # don't forget to update head
 
+    def clear(self):
+        self.head = None
+        self.tail = None
+        self.size = 0
+
+
 class Solution:
-    def fn(self):
-        pass
+    def middleNode(self, head: Optional[Node]) -> Optional[Node]:
+        fast_node = head
+        slow_node = head
+        while fast_node and fast_node.next:
+            slow_node = slow_node.next
+            fast_node = fast_node.next.next
+        return slow_node
+
+    def isPalindrome(self, head: Optional[Node]) -> bool:
+        # get middle node
+        fast_node = middle = head
+        while fast_node and fast_node.next:
+            middle = middle.next
+            fast_node = fast_node.next.next
+
+        # reverse second half of linked list
+        tail = middle
+        _node = middle.next
+        while _node is not None:
+            temp_next = _node.next
+            _node.next = tail
+            tail = _node
+            _node = temp_next
+
+        # compare from both ends for palindrome check
+        while head != tail and head != middle:
+            if head.data != tail.data:
+                return False
+            head = head.next
+            tail = tail.next
+
+        return True
+
+    def removeElements(self, head: Optional[Node], val: int) -> Optional[Node]:
+        prev_node = None
+        _node = head
+        while _node is not None:
+            if _node.data == val:
+                if _node == head:  # handle head separately
+                    head = _node.next
+                else:
+                    prev_node.next = _node.next
+            else:
+                prev_node = _node  # update previous node only when no nodes are deleted
+            _node = _node.next
+        return head
+
+    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if head is None:
+            return head
+
+        prev = head
+        _node = head.next
+        while _node:
+            if prev.data == _node.data:
+                prev.next = _node.next
+            else:
+                prev = _node
+            _node = _node.next
+
+        return head
+
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        dummy = ListNode(data=float('-inf'), next=list1)  # makeshift dummy node to keep track of head
+        _node = dummy
+        while list1 and list2:
+            if list1.data <= list2.data:
+                _node.next = list1
+                list1 = list1.next
+            else:
+                _node.next = list2
+                list2 = list2.next
+            _node = _node.next
+
+        _node.next = list1 if list1 else list2  # append leftover elements after traversal
+        return dummy.next
 
 
 if __name__ == '__main__':
     s = Solution()
     # print(s.construct2DArray(original = [1,1,1,1], m = 1, n = 4))
 
-    ls = LinkedList()
+    ls1 = LinkedList([2, 2, 4])
+    ls2 = LinkedList([1, 3, 4, 5, 6, 7])
 
+    # ls1 = LinkedList([-9, 3])
+    # ls2 = LinkedList([5, 7, 8, 9])
+    # ls.extend([0, 0, 0, 1, 2, 2, 3, 3, 4, 5, 6, 6, 6])
+    res = s.mergeTwoLists(ls1.head, ls2.head)
+    ls1.head = res
+    print(ls1)
+
+    """
     ls.extend([1, 2, 3, 4])
     print(ls)
-    """
     ls.appendleft(0)
     print(ls)
 
@@ -171,8 +261,7 @@ if __name__ == '__main__':
     print(ls)
 
     print(ls.index(1))
-    """
 
-    ls.reverse()
     print(ls)
     print(ls.length())
+    """
