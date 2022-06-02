@@ -7,6 +7,7 @@ class Solution:
     def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
         dummy = ListNode(-1, next=head)
         _node = dummy
+        
         while _node.next and _node.next.next:
             temp_next = _node.next
             _node.next = _node.next.next  # bring back 2
