@@ -15,5 +15,4 @@ class Solution:
             _node.next.next = temp_next  # move forward 1
 
             _node = _node.next.next  # iterate for nex pair
-
         return dummy.next
