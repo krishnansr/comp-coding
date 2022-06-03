@@ -19,6 +19,7 @@ class Solution:
             # EAFP is better than LBYL paradigm
             return head
         
+        # move fast node to (len-k)'th position
         _node = head
         fast_node = head
         for _ in range(k):
@@ -29,5 +30,4 @@ class Solution:
             _node = _node.next
         
         _node.next, fast_node.next, head = None, head, _node.next
-
         return head
