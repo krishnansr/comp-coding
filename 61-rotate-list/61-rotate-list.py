@@ -29,5 +29,6 @@ class Solution:
             fast_node = fast_node.next
             _node = _node.next
         
+        # reorder list head and tail
         _node.next, fast_node.next, head = None, head, _node.next
         return head
