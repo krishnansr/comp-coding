@@ -230,18 +230,42 @@ class Solution:
         _node.next = list1 if list1 else list2  # append leftover elements after traversal
         return dummy.next
 
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        dummy = ListNode(-1, next=head)
+        left = dummy
+        right = head
+
+        while n:  # move the right pointer to desired start position
+            right = right.next
+            n -= 1
+        while right:  # iterate till left reaches len - n position
+            right = right.next
+            left = left.next
+
+        left.next = left.next.next  # node deletion
+        return dummy.next
+
+    def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        dummy = ListNode(-1, next=head)
+        _node = dummy
+        while _node.next and _node.next.next:
+            temp_next = _node.next
+            _node.next = _node.next.next  # bring back 2
+
+            temp_next.next = _node.next.next
+            _node.next.next = temp_next  # move forward 1
+
+            _node = _node.next.next  # iterate for nex pair
+
+        return dummy.next
 
 if __name__ == '__main__':
     s = Solution()
     # print(s.construct2DArray(original = [1,1,1,1], m = 1, n = 4))
 
-    ls1 = LinkedList([2, 2, 4])
-    ls2 = LinkedList([1, 3, 4, 5, 6, 7])
-
-    # ls1 = LinkedList([-9, 3])
-    # ls2 = LinkedList([5, 7, 8, 9])
+    ls1 = LinkedList([1, 2, 3, 4])
     # ls.extend([0, 0, 0, 1, 2, 2, 3, 3, 4, 5, 6, 6, 6])
-    res = s.mergeTwoLists(ls1.head, ls2.head)
+    res = s.swapPairs(ls1.head)
     ls1.head = res
     print(ls1)
 
