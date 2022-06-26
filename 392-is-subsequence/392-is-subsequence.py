@@ -5,4 +5,5 @@ class Solution:
             if t[t_ptr] == s[s_ptr]:
                 s_ptr += 1
             t_ptr += 1
+            
         return s_ptr == len(s)
