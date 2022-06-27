@@ -14,7 +14,6 @@ class Solution:
         while slow != fast:
             slow = nums[slow]
             fast = nums[fast]
-
         return slow
         
     def findDuplicate_extraspace(self, nums: List[int]) -> int:
