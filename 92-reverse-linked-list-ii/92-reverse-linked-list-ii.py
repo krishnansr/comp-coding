@@ -13,11 +13,9 @@ class Solution:
         while _node:
             if i > right:
                 break
-
             elif i < left:
                 ll = _node
                 _node = _node.next
-            
             else:  # left <= i <= right
                 temp_next = _node.next
                 _node.next = prev
