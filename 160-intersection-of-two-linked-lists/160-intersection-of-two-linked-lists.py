@@ -21,26 +21,26 @@ class Solution:
         # check if there is an intersection - usually last nodes are same
         if _nodeA != _nodeB:
             return None
-                
+        
         # add a cycle to the longer list and use floyd's cycle detection
         if len_a > len_b:
-            mod_node, mod_node.next, alt_head = _nodeA, headA, headB 
+            long_tail, long_tail.next, small_head = _nodeA, headA, headB 
         else:
-            mod_node, mod_node.next, alt_head = _nodeB, headB, headA
+            long_tail, long_tail.next, small_head = _nodeB, headB, headA
 
         # floyd's algorithm
-        fast = alt_head
-        slow = alt_head
+        fast = small_head
+        slow = small_head
         while True:
             slow = slow.next
             fast = fast.next.next
             if slow == fast:
                 break
         
-        while alt_head != slow:
-            alt_head = alt_head.next
+        while small_head != slow:
+            small_head = small_head.next
             slow = slow.next
-            
+        
         # remove the artifically added cycle
-        mod_node.next = None
+        long_tail.next = None
         return slow
