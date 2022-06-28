@@ -6,41 +6,31 @@
 
 class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
-        len_a = 1
-        _nodeA = headA
-        while _nodeA.next:
-            _nodeA = _nodeA.next
-            len_a += 1
-            
-        len_b = 1
-        _nodeB = headB
-        while _nodeB.next:
-            _nodeB = _nodeB.next
-            len_b += 1
-            
-        # check if there is an intersection - usually last nodes are same
-        if _nodeA != _nodeB:
-            return None
+        _tailA = headA
+        while _tailA.next:
+            _tailA = _tailA.next
         
-        # add a cycle to the longer list and use floyd's cycle detection
-        if len_a > len_b:
-            long_tail, long_tail.next, small_head = _nodeA, headA, headB 
-        else:
-            long_tail, long_tail.next, small_head = _nodeB, headB, headA
+        # add a cycle to the first list and use floyd's cycle detection
+        _tailA.next = headA
 
         # floyd's algorithm
-        fast = small_head
-        slow = small_head
-        while True:
+        slow = fast = headB
+        while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
             if slow == fast:
                 break
+        else:
+            # no intersection
+            _tailA.next = None
+            return None
         
-        while small_head != slow:
-            small_head = small_head.next
+        # found an intersection, move to point of intersection
+        fast = headB
+        while fast != slow:
+            fast = fast.next
             slow = slow.next
         
         # remove the artifically added cycle
-        long_tail.next = None
+        _tailA.next = None
         return slow
