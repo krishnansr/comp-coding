@@ -6,6 +6,8 @@
 
 class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+        # easy and creative solutions at https://leetcode.com/problems/intersection-of-two-linked-lists/discuss/1093014/C++-Four-different-solutions
+        # refer to the 3rd (length difference) and 4th (2-pointer) solutions specifically. Floyd's has same runtime but not as intuitive.
         _tailA = headA
         while _tailA.next:
             _tailA = _tailA.next
