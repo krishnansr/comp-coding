@@ -8,6 +8,22 @@ class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
         if root is None:
             return 0
+
+        max_depth = 0
+        stack = [(root, 1)]
+        while stack:
+            _node, curr_depth = stack.pop()
+            max_depth = max(max_depth, curr_depth)
+
+            if _node.left:
+                stack.append((_node.left, curr_depth + 1))
+            if _node.right:
+                stack.append((_node.right, curr_depth + 1))        
+        return max_depth
+        
+    def maxDepth_bfs(self, root: Optional[TreeNode]) -> int:
+        if root is None:
+            return 0
         
         max_depth = 0
         queue = [(root, 1)]
@@ -19,5 +35,4 @@ class Solution:
                 queue.append((_node.left, curr_depth + 1))
             if _node.right:
                 queue.append((_node.right, curr_depth + 1))
-        
         return max_depth
