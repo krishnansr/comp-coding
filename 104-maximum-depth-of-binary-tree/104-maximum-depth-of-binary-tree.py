@@ -5,7 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def maxDepth(self, root: Optional[TreeNode]) -> int:
+    def maxDepth_bfs(self, root: Optional[TreeNode]) -> int:
         if root is None:
             return 0
 
@@ -27,14 +27,14 @@ class Solution:
                 
         return level_counter
         
-    def maxDepth_bfs(self, root: Optional[TreeNode]) -> int:
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
         if root is None:
             return 0
         
         max_depth = 0
         queue = [(root, 1)]
         while queue:
-            _node, curr_depth = queue.pop(0)
+            _node, curr_depth = queue.pop()
             max_depth = max(max_depth, curr_depth)
             
             if _node.left:
