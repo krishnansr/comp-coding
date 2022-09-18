@@ -9,6 +9,14 @@ class Solution:
         if p is None or q is None:
             return p == q
         
+        return p.val == q.val \
+                and self.isSameTree(p.left, q.left) \
+                and self.isSameTree(p.right, q.right)
+    
+    def isSameTree_dfs(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        if p is None or q is None:
+            return p == q
+        
         p_stack = [p]
         q_stack = [q]
         while p_stack and q_stack:
