@@ -6,6 +6,10 @@
 #         self.right = right
 class Solution:
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
+        # this is recursive approach - O(m * n)
+        # for advanced hashing based approach O(m + n), see below
+        # https://leetcode.com/problems/subtree-of-another-tree/discuss/102741/Python-Straightforward-with-Explanation-(O(ST)-and-O(S+T)-approaches)
+        
         if None in [root, subRoot]:
             return root == subRoot
         
