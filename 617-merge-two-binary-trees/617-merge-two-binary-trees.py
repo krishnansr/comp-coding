@@ -9,7 +9,7 @@ class Solution:
         if None in [root1, root2]:
             return root1 if root1 else root2
 
-        root1.val += root2.val
-        root1.left = self.mergeTrees(root1.left, root2.left)
-        root1.right = self.mergeTrees(root1.right, root2.right)    
-        return root1
+        _node = TreeNode(val=root1.val + root2.val)
+        _node.left = self.mergeTrees(root1.left, root2.left)
+        _node.right = self.mergeTrees(root1.right, root2.right)    
+        return _node
