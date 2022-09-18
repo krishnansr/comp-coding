@@ -5,7 +5,8 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def maxDepth_bfs(self, root: Optional[TreeNode]) -> int:
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
+        # bfs traversal
         if root is None:
             return 0
 
@@ -27,7 +28,8 @@ class Solution:
                 
         return level_counter
         
-    def maxDepth(self, root: Optional[TreeNode]) -> int:
+    def maxDepth_dfs(self, root: Optional[TreeNode]) -> int:
+        # dfs traversal
         if root is None:
             return 0
         
