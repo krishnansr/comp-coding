@@ -6,12 +6,6 @@
 #         self.right = right
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
-        if root is None:
-            return 0
-        # using recursion
-        return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
-        
-    def maxDepth_bfs(self, root: Optional[TreeNode]) -> int:
         # bfs traversal
         if root is None:
             return 0
@@ -33,7 +27,13 @@ class Solution:
                 level_node_counter = len(stack)  # set num nodes count in next level
                 
         return level_counter
-        
+    
+    def maxDepth_rec(self, root: Optional[TreeNode]) -> int:
+        if root is None:
+            return 0
+        # using recursion
+        return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
+                
     def maxDepth_dfs(self, root: Optional[TreeNode]) -> int:
         # dfs traversal
         if root is None:
