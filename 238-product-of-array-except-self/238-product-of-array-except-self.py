@@ -7,8 +7,8 @@ class Solution:
             ans[i] = ans[i] * prefix
             ans[- i - 1] = ans[- i - 1] * suffix
             
-            prefix = prefix * nums[i]
-            suffix = suffix * nums[-i - 1]
+            prefix *= nums[i]
+            suffix *= nums[-i - 1]
         return ans
         
         
