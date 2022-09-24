@@ -13,7 +13,7 @@ class Solution:
                     
         for i in range(len(matrix)):
             if i in i_inds:
-                matrix[i] = [0] * len(matrix[0])
+                matrix[i][:] = [0] * len(matrix[0])
                 continue
             for j in range(len(matrix[0])):
                 if j in j_inds:
