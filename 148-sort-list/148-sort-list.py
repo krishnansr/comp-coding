@@ -32,7 +32,6 @@ class Solution:
             fast = fast.next.next
 
         slow.next, head2 = None, slow.next  # split the lists into two
-        left_sorted = self.sortList(head)
-        right_sorted = self.sortList(head2)
-        head = self.mergeTwoLists(left_sorted, right_sorted)
-        return head
+        head = self.sortList(head)  # left sorted list
+        head2 = self.sortList(head2)  # right sorted list
+        return self.mergeTwoLists(head, head2)
