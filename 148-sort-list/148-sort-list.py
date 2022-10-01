@@ -33,4 +33,5 @@ class Solution:
         slow.next, head2 = None, slow.next  # split the lists into two
         head = self.sortList(head)  # left sorted list
         head2 = self.sortList(head2)  # right sorted list
+        
         return self.mergeTwoLists(head, head2)
