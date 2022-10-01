@@ -17,7 +17,6 @@ class Solution:
                 _node.next = list2
                 list2 = list2.next
             _node = _node.next
-
         _node.next = list1 if list1 else list2  # append leftover elements after traversal
         return dummy.next     
 
