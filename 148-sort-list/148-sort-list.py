@@ -25,16 +25,14 @@ class Solution:
         if head is None or head.next is None:
             return head
         
-        prev_slow = None
         slow = head
         fast = head
-        while fast and fast.next:
-            prev_slow = slow
+        while fast.next and fast.next.next:
             slow = slow.next
             fast = fast.next.next
 
-        prev_slow.next = None  # split the lists into two
+        slow.next, head2 = None, slow.next  # split the lists into two
         left_sorted = self.sortList(head)
-        right_sorted = self.sortList(slow)
+        right_sorted = self.sortList(head2)
         head = self.mergeTwoLists(left_sorted, right_sorted)
         return head
