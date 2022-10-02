@@ -259,6 +259,7 @@ class Solution:
 
         return dummy.next
 
+
 if __name__ == '__main__':
     s = Solution()
     # print(s.construct2DArray(original = [1,1,1,1], m = 1, n = 4))
