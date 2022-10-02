@@ -5,7 +5,6 @@ class Solution:
         def backtracking(i, total):
             if i == len(nums):
                 return int(total == target)
-            
             if (i, total) in dp:
                 return dp[(i, total)]
             
