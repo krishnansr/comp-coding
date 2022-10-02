@@ -24,4 +24,6 @@ class Solution:
                 r = min(r, i)
                 
             i += 1
-        return nums
+        
+        # alternate easier solution using array partitioning
+        # https://www.youtube.com/watch?v=4xbWSRZHqac
