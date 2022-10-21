@@ -8,7 +8,7 @@ class Solution:
                 combinations.append(path)
                 return
             elif target > 0:
-                if num_cnt < cnt[nums[0]]:  # check max allowed count
+                if num_cnt < cnt[nums[0]]:   # check max allowed count
                     dfs(nums, target - nums[0], path + [nums[0]], num_cnt + 1)
 
                 for i in range(1, len(nums)):
