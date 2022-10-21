@@ -1,17 +1,16 @@
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
-        dp = [0] * len(nums)
-        dp[0] = 1
+        max_idx = 0
 
         for i, n in enumerate(nums):
-            if dp[-1]:
+            if i > max_idx:
+                return False
+            max_idx = max(max_idx, i + n)
+
+            if max_idx >= len(nums):
                 return True
             
-            for j in range(i + 1, min(i + n + 1, len(nums))):
-                dp[j] = 1
-                
-            if dp[i + 1] == 0:
-                return False
+        return True
 
     def canJump_rec(self, nums: List[int]) -> bool:
         can_jump = [False]
