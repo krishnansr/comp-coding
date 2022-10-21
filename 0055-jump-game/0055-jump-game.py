@@ -7,9 +7,6 @@ class Solution:
                 return False
             max_idx = max(max_idx, i + n)
 
-            if max_idx >= len(nums):
-                return True
-            
         return True
 
     def canJump_rec(self, nums: List[int]) -> bool:
