@@ -3,6 +3,7 @@ class Solution:
 
 	def pacificAtlantic(self, heights: List[List[int]]) -> Set[Tuple[int, int]]:
 		r, c = len(heights), len(heights[0])
+        
 		atl_visited = set()
 		pas_visited = set()
 
