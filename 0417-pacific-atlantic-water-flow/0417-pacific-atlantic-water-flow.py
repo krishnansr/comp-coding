@@ -16,6 +16,7 @@ class Solution:
 		for i in range(r):
 			dfs(i,     0, pas_visited)
 			dfs(i, c - 1, atl_visited)
+            
 		for j in range(c):
 			dfs(    0, j, pas_visited)
 			dfs(r - 1, j, atl_visited)
