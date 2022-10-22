@@ -1,6 +1,7 @@
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
         # easier O(1) space way using permutations: https://leetcode.com/problems/unique-paths/discuss/22958/Math-solution-O(1)-space 
+        
         if m is 1 or n is 1:
             return 1
 
