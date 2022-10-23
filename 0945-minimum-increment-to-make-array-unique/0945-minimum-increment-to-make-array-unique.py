@@ -3,13 +3,7 @@ class Solution:
         # using Union find - https://leetcode.com/problems/minimum-increment-to-make-array-unique/solutions/197687/java-c-python-straight-forward/
         roots = {}
         def find(x):
-            if x in roots:
-                roots[x] = find(roots[x] + 1)
-            else:
-                roots[x] = x
+            roots[x] = find(roots[x] + 1) if x in roots else x
             return roots[x]
 
-        moves = 0
-        for n in nums:
-            moves += find(n) - n
-        return moves
+        return sum(find(n) - n for n in nums)
