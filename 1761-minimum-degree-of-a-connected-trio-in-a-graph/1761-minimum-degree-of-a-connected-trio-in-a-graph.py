@@ -17,7 +17,8 @@ class Solution(object):
             if len(fr1_friends) > 1:
                 for fr2 in fr1_friends:
                     for fr3 in fr1_friends & edge_maps[fr2]:
-                        result = min(result, node_degree[fr1] + node_degree[fr2] + node_degree[fr3] - 6)
+                        out_friends = node_degree[fr1] + node_degree[fr2] + node_degree[fr3] 
+                        result = min(result, out_friends - 6)
                         edge_maps[fr3].discard(fr2)
                         edge_maps[fr3].discard(fr1)
 
