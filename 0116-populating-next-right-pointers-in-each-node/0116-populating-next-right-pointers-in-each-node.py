@@ -11,6 +11,22 @@ class Node(object):
 
 class Solution(object):
     def connect(self, root):
+        _node = root
+        while _node and _node.left:
+            next_layer = _node.left
+            prev_node = None
+            while _node:
+                _node.left.next = _node.right
+                if prev_node:
+                    prev_node.right.next = _node.left
+                prev_node = _node
+                _node = _node.next
+            
+            _node = next_layer
+        return root
+        
+        
+    def connect_bfs(self, root):
         """
         :type root: Node
         :rtype: Node
