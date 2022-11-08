@@ -7,11 +7,13 @@ class Solution(object):
         """
         result = float("inf")
 
+        
         edge_maps = [set() for _ in range(n)]
         for (fr, to) in edges:
             edge_maps[fr - 1].add(to - 1)
             edge_maps[to - 1].add(fr - 1)
 
+            
         node_degree = [len(edge_maps[i]) for i in range(n)]
         for fr1, fr1_friends in enumerate(edge_maps):
             if len(fr1_friends) > 1:
