@@ -74,10 +74,12 @@ Tracker repo to add leetcode, hackerrank scratch files that are either speed-opt
     - - [ ] Queue using Stack and Vice versa
     - - [ ] Circular Queue
 - [ ] Dynamic Programming
-    - - [ ] Recursion + Recursion DP + Iteration + Iteration Space Optimized
-    - - [ ] Complexity Analysis
+    - - [x] Recursion + Recursion DP + Iteration + Iteration Space Optimized
+    - - [x] Complexity Analysis
     - - [ ] 0/1 Knapsack
     - - [ ] Subset Questions
+    - - [ ] Shortest Path (eg: Unique Paths I/II)
+    - - [ ] Longest Common Substring/Subsequence
     - - [ ] DP on Grids
     - - [ ] LC Questions on Above topics
     - - [ ] Unbounded Knapsack
