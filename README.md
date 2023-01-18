@@ -1,5 +1,6 @@
 # comp-coding
 Tracker repo to add leetcode, hackerrank scratch files that are either speed-optimized or space-optimized
+![sorting_time_complexity](./src/img/Complexity.png)
 
 # Progress Tracker
 
