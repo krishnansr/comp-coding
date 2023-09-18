@@ -349,7 +349,51 @@ class Solution:
                 right = middle
         return -1
 
+    def uniquePaths(self, m: int, n: int) -> int:
+        if m is 1 or n is 1:
+            return 1
+
+        dp = [[0 for _ in range(n)] for _ in range(m)]
+        dp[0][1] = dp[1][0] = 1
+
+        for i in range(m):
+            for j in range(n):
+                if i + j > 1:
+                    from_left = dp[i][j-1] if j-1 >= 0 else 0
+                    from_top = dp[i-1][j] if i-1 >= 0 else 0
+                    dp[i][j] = from_left + from_top
+
+        return dp[-1][-1]
+
+    def minTrioDegree(self, n, edges):
+        """
+        :type n: int
+        :type edges: List[List[int]]
+        :rtype: int
+        """
+        result = float("inf")
+
+        edge_maps = defaultdict(set)
+        for (fr, to) in edges:
+            edge_maps[fr].add(to)
+            edge_maps[to].add(fr)
+
+        node_degree = [len(edge_maps[i]) for i in edge_maps]
+
+        for fr1 in range(1, n + 1):
+            if len(edge_maps[fr1]) > 1:
+                for fr2 in edge_maps[fr1]:
+                    for fr3 in edge_maps[fr1] & edge_maps[fr2]:
+                        print('here')
+                        result = min(result, len(edge_maps[fr1]) + len(edge_maps[fr2]) + len(edge_maps[fr3]) - 6)
+                        edge_maps[fr3].discard(fr2)
+                        edge_maps[fr3].discard(fr1)
+
+        return result if result != float("inf") else -1
+    
+
 if __name__ == '__main__':
+    from collections import defaultdict
     s = Solution()
     # print(s.strStr('hello', 'll'))
     # print(s.strStr('abc', 'abcd'))
@@ -386,6 +430,8 @@ if __name__ == '__main__':
     # print(s.sortedSquares([-7,-3,2,3,11]))
     # print(s.backspaceCompare(s = "ab#c", t = "ad#c"))
     # print(s.construct2DArray(original=[1, 2, 3, 4], m=2, n=2))
-    print(s.peakIndexInMountainArray(arr = [0,2,1,0]))
-    print(s.peakIndexInMountainArray(arr = [3,4,5,1]))
+    # print(s.peakIndexInMountainArray(arr = [0,2,1,0]))
+    # print(s.peakIndexInMountainArray(arr = [3,4,5,1]))
+    # print(s.uniquePaths(m=3, n=7))
+    print(s.minTrioDegree(15, [[6,15],[12,10],[14,7],[4,6],[14,10],[3,10],[5,1],[4,15],[14,13],[8,3],[8,6],[10,9],[2,5],[1,3],[15,2],[2,14],[15,5],[7,4],[6,2],[10,15],[15,8],[15,14],[1,15],[6,14],[4,5],[3,9],[5,6],[3,6],[4,14],[5,9],[8,2],[3,12],[3,15],[8,5],[11,4],[9,4],[5,12],[11,7],[2,4],[1,2],[9,13],[10,11],[2,7],[10,8],[1,11],[2,10],[15,7],[1,14],[2,13],[7,9],[6,13],[7,6],[6,10],[8,11],[3,2],[14,5],[3,14],[5,11],[4,13],[8,1],[10,4],[11,9],[10,7],[10,13],[1,4],[8,13],[11,6],[1,7],[1,13],[2,9],[2,12],[13,12],[15,9],[14,12]]))
 
