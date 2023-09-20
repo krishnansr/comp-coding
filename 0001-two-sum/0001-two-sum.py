@@ -7,4 +7,4 @@ class Solution:
           if subtrahend in subtrahend_map:
             return [subtrahend_map[subtrahend], i]
           subtrahend_map[n] = i
-        return [0, 0]
+        return [-1, -1]
