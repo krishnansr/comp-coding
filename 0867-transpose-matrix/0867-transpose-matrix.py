@@ -1,5 +1,8 @@
 class Solution:
     def transpose(self, matrix: List[List[int]]) -> List[List[int]]:
+        return zip(*matrix)
+        
+    def transpose_iter(self, matrix: List[List[int]]) -> List[List[int]]:
         trans = [[] for _ in range(len(matrix[0]))]
         for row in matrix:
             for i in range(len(row)):
