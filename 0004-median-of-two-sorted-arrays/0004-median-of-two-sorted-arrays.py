@@ -13,7 +13,7 @@ class Solution:
         
     def kth_smallest(self, nums1: List[int], nums2: List[int], st1: int, end1: int, st2: int, end2: int, k: int) -> float:
         # base cases are little tricky, check if st and end are still legal bounds
-        # and use st1 for nums2, st2 for nums1 (swapped start positions).
+        # and use st1 for nums2, st2 for nums1 (swapped start positions)
         if st1 > end1:
             return nums2[k - st1]
         if st2 > end2:
