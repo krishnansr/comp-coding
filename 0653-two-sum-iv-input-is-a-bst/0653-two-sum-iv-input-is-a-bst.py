@@ -11,14 +11,14 @@ class Solution:
         # Solution from https://leetcode.com/problems/two-sum-iv-input-is-a-bst/discuss/1420711/C++JavaPython-3-solutions:-HashSet-Stack-Python-yield-Solutions-O(H)-space
         
         def in_order_traversal(node):
-            # returns sorted array in ascending order
+            # returns sorted array in ascending order.
             if node:
                 yield from in_order_traversal(node.left)
                 yield node.val
                 yield from in_order_traversal(node.right)
 
         def in_order_traversal_rev(node):
-            # returns sorted array in descending order
+            # returns sorted array in descending order.
             if node:
                 yield from in_order_traversal_rev(node.right)
                 yield node.val
