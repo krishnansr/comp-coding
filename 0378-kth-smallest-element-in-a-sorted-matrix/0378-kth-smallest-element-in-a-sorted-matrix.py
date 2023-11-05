@@ -9,11 +9,11 @@ class Solution:
         num_cols = len(matrix[0])
         
         # initialize min-heap to first column, store (value, r, c)
-        heap = [(matrix[r][0], r, 0) for r in range(min(k, num_rows))]  # already sorted
+        heap = [(matrix[r][0], r, 0) for r in range(min(k, num_rows))]  # already sorted.
         
         ans = -1
         for i in range(k):
-            ans, r, c = heapq.heappop(heap)  # ans is the i_th smallest value
-            if c + 1 < num_cols:  # i. e. if next column is a valid col index
+            ans, r, c = heapq.heappop(heap)  # ans is the i_th smallest value.
+            if c + 1 < num_cols:  # i. e. if next column is a valid col index.
                 heapq.heappush(heap, (matrix[r][c + 1], r, c + 1))
         return ans
