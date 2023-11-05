@@ -6,7 +6,7 @@ class Solution:
         num_rows = len(matrix)
         num_cols = len(matrix[0])
 
-        # start from top-right corner
+        # Start from top-right corner.
         r, c = 0, num_cols - 1
         
         while r < num_rows and c >= 0:
