@@ -15,7 +15,6 @@ class Solution:
                 return True
         
         row = min(l, num_rows - 1)
-        # TODO possible assert statements for check
 
         l, r = 0, num_cols - 1
         while l <= r:
