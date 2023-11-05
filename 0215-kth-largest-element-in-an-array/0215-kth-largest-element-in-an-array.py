@@ -6,5 +6,4 @@ class Solution:
         for n in nums[k:]:
             if n > heap[0]:  # n is greater than the smallest of k largest elements.
                 heapq.heappushpop(heap, n)
-        
         return heap[0]  # the smallest of the k largest elements
