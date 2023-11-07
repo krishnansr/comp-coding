@@ -6,6 +6,21 @@ class Solution:
         # 2. 0 amount, 3. 0 coins, 4. starting coin is more than amount
         # 5. ending coin is more than amount 6. happy path
         
+        # Initialize dp array
+        dp = [amount + 1] * (amount + 1)
+        dp[0] = 0  # 0-th index is base case
+        
+        for amt in range(1, amount + 1):
+            for coin in coins:
+                if amt - coin >= 0:  # if all coins are bigger than amt            
+                    dp[amt] = min(dp[amt], 1 + dp[amt - coin])
+        
+        min_coins = dp[amount]
+        return min_coins if min_coins != amount + 1 else -1
+        
+    
+    def coinChange_diff_init(self, coins: List[int], amount: int) -> int:
+        
         if amount is 0:
             return 0
 
