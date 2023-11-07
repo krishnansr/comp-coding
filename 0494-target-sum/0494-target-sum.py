@@ -1,5 +1,7 @@
 class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
+        # O(N. T) solution where T is the sum(nums)
+        # solution explanation: https://youtu.be/g0npyaQtAQM
         dp = {}  # set
 
         def backtracking(i, total):
