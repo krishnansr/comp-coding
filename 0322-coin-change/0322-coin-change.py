@@ -1,5 +1,5 @@
 class Solution:
-    def coinChange_simple(self, coins: List[int], amount: int) -> int:
+    def coinChange(self, coins: List[int], amount: int) -> int:
         # So many edge cases to handle in this bottom-up DP solution.
         # O(T.N) where T is the amount
         # Edge cases: 1. amount not matching with coins
@@ -19,8 +19,8 @@ class Solution:
         return min_coins if min_coins != amount + 1 else -1
         
     
-    def coinChange(self, coins: List[int], amount: int) -> int:
-        
+    def coinChange_fast(self, coins: List[int], amount: int) -> int:
+        # this solution is always faster than the simpler solution by ~100 ms.
         if amount is 0:
             return 0
 
