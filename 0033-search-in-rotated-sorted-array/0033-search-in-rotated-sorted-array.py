@@ -23,6 +23,7 @@ class Solution:
                 r = mid - 1
             else:
                 return mid
+
         return -1
     
     def search_single_binsearch(self, nums: List[int], target: int) -> int:
