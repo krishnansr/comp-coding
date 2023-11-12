@@ -4,9 +4,8 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-      
     def oddEvenList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        
+        # this solution is faster        
         even_head = ListNode(val=-1, next=None)
         even_node = even_head
         
