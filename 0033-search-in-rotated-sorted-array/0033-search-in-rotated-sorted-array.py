@@ -19,7 +19,7 @@ class Solution:
                 l = mid + 1
         return -1
         
-    def search_double_binsearch(self, nums: List[int], target: int) -> int:
+    def search_double_bin_search(self, nums: List[int], target: int) -> int:
         # Find the pivot index in O(log N) time.
         l, r = 0, len(nums) - 1
         while l <= r:
