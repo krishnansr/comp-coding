@@ -1,5 +1,25 @@
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
+        l, r = 0, len(nums) - 1
+
+        while l <= r:
+            mid = (l + r) // 2
+            if target == nums[mid]:
+                return mid
+
+            left_half_is_sorted = nums[l] <= nums[mid]
+            target_in_left_half = nums[l] <= target <= nums[mid]
+            target_in_right_half = nums[mid] <= target <= nums[r]
+            
+            if left_half_is_sorted and target_in_left_half:
+                r = mid - 1
+            elif (not left_half_is_sorted) and (not target_in_right_half):
+                r = mid - 1
+            else:
+                l = mid + 1
+        return -1
+        
+    def search_2search(self, nums: List[int], target: int) -> int:
         # Find the pivot index in O(log N) time.
         l, r = 0, len(nums) - 1
         while l <= r:
