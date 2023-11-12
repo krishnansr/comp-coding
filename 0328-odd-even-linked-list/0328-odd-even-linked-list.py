@@ -5,8 +5,6 @@
 #         self.next = next
 class Solution:
     def oddEvenList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        if head is None:
-            return head
         
         even_head = ListNode(val=-1, next=None)
         even_node = even_head
@@ -28,5 +26,6 @@ class Solution:
         if _node is None:
             _node = prev_node
 
-        _node.next = even_head.next  # attach even to odd list
+        if _node:
+            _node.next = even_head.next  # attach even to odd list
         return dummy.next
