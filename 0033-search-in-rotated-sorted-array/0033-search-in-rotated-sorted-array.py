@@ -14,7 +14,6 @@ class Solution:
         else:  # Target could be in bigger half.
             l, r = mid, len(nums)
         
-        print(l, r, nums[l: r + 1])
         # Find the number in O(log N) time.
         while l <= r:
             mid = (l + r) // 2
