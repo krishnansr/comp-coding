@@ -1,5 +1,6 @@
 class Solution:
     def containsNearbyDuplicate(self, nums, k):
+        # Using dict instead of set.
         num_map = {}
         for i, num in enumerate(nums):
             if num in num_map and i - num_map[num] <= k:
