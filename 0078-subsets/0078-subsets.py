@@ -9,6 +9,8 @@ class Solution:
             power_set.append(path)
 
             for i, n in enumerate(rem_nums):
+                # 1 will take of [1, 2], [1, 3], 2 will take care of [2, 3]
+                # 3 will do nothing.
                 queue.append((path + [n], rem_nums[i + 1:]))
 
         return power_set
