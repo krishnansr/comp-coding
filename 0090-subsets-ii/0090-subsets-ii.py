@@ -3,6 +3,7 @@ class Solution:
         # Small tweak from https://leetcode.com/problems/subsets/
         # Using binary based approach doesn't work need to keep track of nums.
         nums.sort()  # Easier to skip duplicates once sorted.
+        
         power_set = []
 
         # Solution using BFS, also works with DFS.
