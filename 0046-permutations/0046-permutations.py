@@ -2,7 +2,7 @@ class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         all_permutations = []
 
-        # Can solve using either BFS or DFS.
+        # Can solve this using either BFS or DFS.
         # Time complexity: O(E + V) in graph which is O(N!*N).
         # Space complexity: O(N!).
         queue = [(nums, [])]  # Stack contains leftover_numbers, resultant_path.
