@@ -1,6 +1,5 @@
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
-        nums.sort()  # Easier to skip duplicates once sorted.
         power_set = []
 
         # Solution using BFS, also works with DFS.
