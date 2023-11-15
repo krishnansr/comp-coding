@@ -1,5 +1,8 @@
 class Solution:
     def rob(self, nums: List[int]) -> int:
+        # Since House[1] and House[n] are adjacent, they cannot be robbed together. 
+        # Therefore, the problem becomes to rob either House[1]-House[n-1] or House[2]-House[n], depending on which choice offers more money. 
+        # Now the problem has degenerated to the House Robber, which is already been solved.
         if len(nums) == 1:
             return nums[0]
         
