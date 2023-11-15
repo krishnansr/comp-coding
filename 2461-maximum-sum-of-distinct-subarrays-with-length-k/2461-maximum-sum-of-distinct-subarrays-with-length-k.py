@@ -1,5 +1,8 @@
 class Solution:
     def maximumSubarraySum(self, nums: List[int], k: int) -> int:
+        # Very similar to the sliding window (1st) approach in 
+        # https://leetcode.com/problems/longest-substring-without-repeating-characters
+        
         hash_set = set()
         max_sum = 0
         curr_sum = 0
