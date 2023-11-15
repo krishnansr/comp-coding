@@ -6,7 +6,6 @@ class Solution:
 
         if len(nums) == 1:
             return nums[0]
-        
         return max(self.normal_rob(nums[:-1]), self.normal_rob(nums[1:]))
 
     def normal_rob(self, nums: List[int]) -> int:
