@@ -2,7 +2,7 @@ class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         power_set = []
         
-        # Solution using BFS.
+        # Solution using BFS, also works with DFS.
         queue = [([], 0)]
         while queue:
             subset, ind = queue.pop(0)
