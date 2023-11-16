@@ -14,7 +14,7 @@ class Solution:
             cnt, char = heapq.heappop(heap)
             res += char
             if prev_cnt < 0:
-                # push the element, char from previous call
+                # push the element, char from previous call.
                 heapq.heappush(heap, (prev_cnt, prev_char))
             cnt += 1
             prev_cnt, prev_char = cnt, char  # keep remembering for next call.
