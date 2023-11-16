@@ -2,7 +2,7 @@ class Solution:
     moves = [[0, -1], [0, 1], [-1, 0], [1, 0]]
     
     def exist(self, board: List[List[str]], word: str) -> bool:
-        
+        # Comments if needed https://leetcode.com/problems/word-search/discuss/3183331/79.-Word-Search-with-step-by-step-explanation
         
         rows = len(board)
         cols = len(board[0])
