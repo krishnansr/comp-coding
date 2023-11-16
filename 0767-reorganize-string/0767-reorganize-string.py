@@ -1,5 +1,27 @@
 class Solution:
     def reorganizeString(self, name: str) -> str:
+        # Simpler solution using heaps.
+        counter = dict()
+        for char in name:
+            counter[char] = counter.get(char, 0) + 1
+
+        heap = [(-v, k) for k, v in counter.items()]
+        heapq.heapify(heap)
+
+        prev_cnt, prev_char = 0, ''
+        res = ''
+        while heap:
+            cnt, char = heapq.heappop(heap)
+            res += char
+            if prev_cnt < 0:
+                # push the element, char from previous call
+                heapq.heappush(heap, (prev_cnt, prev_char))
+            cnt += 1
+            prev_cnt, prev_char = cnt, char  # keep remembering for next call.
+        
+        return res if len(res) == len(name) else ''
+        
+    def reorganizeString_heap2(self, name: str) -> str:
         char_counter = dict()
         for char in name:
             char_counter[char] = char_counter.get(char, 0) + 1
