@@ -1,7 +1,7 @@
 class Solution:
     def reorganizeString(self, name: str) -> str:
         # Simpler solution using heaps. 
-        # It is O(N log A) where A is the size of the alphabet in the heap, since it's a constant, overall time is O(N)
+        # It is O(N log A) where A is the size of the alphabet in the heap, since it's a constant, overall time is O(N).
         counter = dict()
         for char in name:
             counter[char] = counter.get(char, 0) + 1
