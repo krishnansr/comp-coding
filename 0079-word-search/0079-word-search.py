@@ -18,15 +18,13 @@ class Solution:
             # Found a match at current index.
             tmp = board[r][c]
             board[r][c] = '~'  # Explored, so set to a random character.
-            result = False
             for dx, dy in self.moves:
                 new_r = r + dx
                 new_c = c + dy
                 if backtrack(new_r, new_c, ind + 1):
-                    result = True
-                    return result
+                    return True
             board[r][c] = tmp  # Didn't find any match, return char.
-            return result
+            return False
         
         for r in range(rows):
             for c in range(cols):
