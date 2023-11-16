@@ -24,6 +24,7 @@ class Solution:
                 new_c = c + dy
                 if backtrack(new_r, new_c, ind + 1):
                     result = True
+                    return result
             board[r][c] = tmp  # Didn't find any match, return char.
             return result
         
