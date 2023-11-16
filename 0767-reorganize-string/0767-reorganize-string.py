@@ -1,5 +1,17 @@
 class Solution:
     def reorganizeString(self, name: str) -> str:
+        # Simpler solution using sort -> Time is O(N log N).
+        if len(name) < 2:
+            return name
+        
+        ls = sorted(sorted(name), key= name.count) 
+        
+        h = len(ls) // 2
+        ls[1::2], ls[::2] = ls[:h], ls[h:]
+        
+        return ''.join(ls) if ls[-1] != ls[-2] else ''
+            
+    def reorganizeString_heap(self, name: str) -> str:
         # Simpler solution using heaps.
         counter = dict()
         for char in name:
@@ -20,30 +32,3 @@ class Solution:
             prev_cnt, prev_char = cnt, char  # keep remembering for next call.
         
         return res if len(res) == len(name) else ''
-        
-    def reorganizeString_heap2(self, name: str) -> str:
-        char_counter = dict()
-        for char in name:
-            char_counter[char] = char_counter.get(char, 0) + 1
-
-        char_count_list = [(-v, k) for k, v in char_counter.items()]
-        heapq.heapify(char_count_list)
-
-        modified_string = ''
-        while char_count_list:
-            count, char = heapq.heappop(char_count_list)
-            
-            if (not modified_string) or char != modified_string[-1]:
-                modified_string += char
-                if count < -1:
-                    heapq.heappush(char_count_list, (count + 1, char))
-            elif char_count_list:
-                count2, char2 = heapq.heappop(char_count_list)
-                modified_string += char2
-                if count2 < -1:
-                    heapq.heappush(char_count_list, (count2 + 1, char2))
-                heapq.heappush(char_count_list, (count, char))
-            else:
-                return ''
-        
-        return modified_string
