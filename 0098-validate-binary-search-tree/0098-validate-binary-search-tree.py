@@ -18,7 +18,7 @@ class Solution:
                 node = node.left
 
             # BackTrack from the empty subtree and visit the Node
-            # at the top of the stack            
+            # at the top of the stack.
             node = stack.pop()
             if node.val <= prev_val:
                 return False
