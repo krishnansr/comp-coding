@@ -37,6 +37,7 @@ class Solution:
                     total += dfs(neighbor)
             return total + 1
         
+        # This visited set is a must, can't skip for clustering.
         visited = set()
         max_cluster = 0
         for num in nums:
