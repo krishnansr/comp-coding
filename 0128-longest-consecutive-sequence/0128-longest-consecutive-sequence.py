@@ -1,5 +1,19 @@
 class Solution:
-    def longestConsecutive(self, nums: List[int]) -> int:
+    def longestConsecutive(self, nums):
+        # Credit to https://leetcode.com/problems/longest-consecutive-sequence/discuss/41057/Simple-O(n)-with-Explanation-Just-walk-each-streak
+
+        num_set = set(nums)  # O(N) space and time.
+        max_size = 0
+        for num in num_set:
+            # Check if it's the starting number
+            if num - 1 not in num_set:
+                y = num + 1
+                while y in num_set:
+                    y += 1
+                max_size = max(max_size, y - num)
+        return max_size
+    
+    def longestConsecutive_clustering(self, nums: List[int]) -> int:
         # build an adjacency map in O(N) time.
         adj_map = dict()
         for num in nums:
