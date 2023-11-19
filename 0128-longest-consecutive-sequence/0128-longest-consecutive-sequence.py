@@ -1,7 +1,6 @@
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
         # build an adjacency map in O(N) time.
-        
         adj_map = dict()
         for num in nums:
             neighbors = set()
@@ -18,6 +17,7 @@ class Solution:
         def dfs(num):
             total = 0
             for neighbor in adj_map[num]:
+                # Visit the unvisited neighbors.
                 if neighbor not in visited:
                     visited.add(neighbor)
                     total += dfs(neighbor)
@@ -26,6 +26,7 @@ class Solution:
         visited = set()
         max_cluster = 0
         for num in nums:
+            # Visit the unvisited numbers.
             if num not in visited:
                 visited.add(num)
                 curr_cluster  = dfs(num)
