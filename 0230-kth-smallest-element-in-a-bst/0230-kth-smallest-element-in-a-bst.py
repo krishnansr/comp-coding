@@ -6,6 +6,20 @@
 #         self.right = right
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        def in_order_traversal(node):
+            # returns sorted array in ascending order.
+            if node:
+                yield from in_order_traversal(node.left)
+                yield node.val
+                yield from in_order_traversal(node.right)
+
+        for val in in_order_traversal(root):
+            if k == 1:
+                return val
+            k -= 1
+        return -1
+
+    def kthSmallest_iterative(self, root: Optional[TreeNode], k: int) -> int:
         # Idea since it's a BST, in-order traversal gives the sorted array.
         # Stop the in-order traversal at the kth iteration to get kth smallest element.
 
