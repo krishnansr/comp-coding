@@ -6,6 +6,31 @@
 #         self.right = right
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
+        # inorder traversal must be sorted - iterative approach.
+        prev_val = float('-inf')
+
+        node = root
+        stack = []
+        while stack or node:
+            # Reach the left most Node of the current Node
+            while node:
+                stack.append(node)
+                node = node.left
+
+            # BackTrack from the empty subtree and visit the Node
+            # at the top of the stack            
+            node = stack.pop()
+            if node.val <= prev_val:
+                return False
+            prev_val = node.val
+            
+            # We have visited the node and its left 
+            # subtree. Now, it's right subtree's turn
+            node = node.right
+        return True
+            
+    
+    def isValidBST_recursive(self, root: Optional[TreeNode]) -> bool:
         # inorder traversal must be sorted.
         def inorder_traversal(node):
             if node:
