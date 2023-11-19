@@ -5,7 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def isValidBSTT(self, root: Optional[TreeNode]) -> bool:
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
         # inorder traversal must be sorted - iterative approach.
         prev_val = float('-inf')
 
@@ -29,19 +29,6 @@ class Solution:
             node = node.right
         return True
     
-    def isValidBST(self, root):
-        def dfs(node, floor, ceiling):
-            if not node: 
-                return True
-            if node.val <= floor or node.val >= ceiling:
-                return False
-            
-            # root is max val in left tree; and is the min_val in the right tree
-            return dfs(node.left, floor=floor, ceiling=node.val) and dfs(node.right, floor=node.val, ceiling=ceiling)
-    
-        return dfs(root, floor=float('-inf'), ceiling=float('inf'))
-
-    
     def isValidBST_recursive(self, root: Optional[TreeNode]) -> bool:
         # inorder traversal must be sorted.
         def inorder_traversal(node):
@@ -56,3 +43,15 @@ class Solution:
                 return False
             prev_val = val
         return True
+    
+    def isValidBST_DFS(self, root):
+        def dfs(node, floor, ceiling):
+            if not node: 
+                return True
+            if node.val <= floor or node.val >= ceiling:
+                return False
+            
+            # root is max val in left tree; and is the min_val in the right tree
+            return dfs(node.left, floor=floor, ceiling=node.val) and dfs(node.right, floor=node.val, ceiling=ceiling)
+    
+        return dfs(root, floor=float('-inf'), ceiling=float('inf'))
