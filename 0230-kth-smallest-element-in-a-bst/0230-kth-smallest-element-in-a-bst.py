@@ -7,7 +7,7 @@
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         def in_order_traversal(node):
-            # returns sorted array in ascending order.
+            # Returns sorted array in ascending order.
             if node:
                 yield from in_order_traversal(node.left)
                 yield node.val
