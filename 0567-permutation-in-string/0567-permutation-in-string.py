@@ -14,7 +14,7 @@ class Solution:
                 return True
             
             if r - l == len(s1):
-                # Recieved enough characters since (r - l) == len(s1
+                # Recieved enough characters since (r - l) == len(s1)
                 # so keep moving l up to maintain window size.
                 s2_map[s2[l]] -= 1
                 if s2_map[s2[l]] == 0:
