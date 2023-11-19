@@ -12,7 +12,7 @@ class Solution:
         node = root
         stack = []
         while stack or node:
-            # Reach the left most Node of the current Node
+            # Reach the left most Node of the current Node.
             while node:
                 stack.append(node)
                 node = node.left
