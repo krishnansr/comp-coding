@@ -23,7 +23,7 @@ class Solution:
                 return False
             prev_val = node.val
             
-            # We have visited the node and its left subtree. Now, it's right subtree's turn
+            # We have visited the node and its left subtree. Now, it's right subtree's turn.
             node = node.right
         return True
     
