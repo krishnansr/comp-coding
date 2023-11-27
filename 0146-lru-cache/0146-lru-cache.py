@@ -7,7 +7,10 @@ class Node:
         
 
 class LRUCache:
-
+    # Using a hashmap (as cache for O(1) retrieval and a linked list to easily move around
+    # least and most recurrent units)
+    # Reference solution: https://youtu.be/7ABFKPK2hD4
+    
     def __init__(self, capacity: int):
         self.cache = dict()  # cache of key -> node pointer.
         self.cap = capacity
