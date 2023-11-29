@@ -31,7 +31,7 @@ class Trie:
             if char not in curr_node.children:
                 return False
             curr_node = curr_node.children[char]
-        return curr_node.end_char  # to differentiate b/w apple and app.
+        return curr_node.end_char  # to differentiate b/w apple and app
         
     def startsWith(self, prefix: str) -> bool:
         """
@@ -43,7 +43,7 @@ class Trie:
             if char not in curr_node.children:
                 return False
             curr_node = curr_node.children[char]
-        return True  # don't differentiate b/w apple and app.
+        return True  # don't differentiate b/w apple and app
         
 
 
