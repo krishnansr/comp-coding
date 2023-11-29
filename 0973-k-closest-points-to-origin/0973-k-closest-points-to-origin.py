@@ -5,6 +5,7 @@ class Solution:
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
         # Other optimal solutions usign quickselect / kd-tree might run in O(N)
         # example: https://leetcode.com/problems/k-closest-points-to-origin/discuss/576025/Python-3-lines-kNN-search-using-kd-tree-(for-large-number-of-queries)
+        
         # Using max-heaps takes about O(Nlogk).
         max_heap = [(-self.distance_fn(points[i]), points[i]) for i in range(k)]
         heapq.heapify(max_heap)
