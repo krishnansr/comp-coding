@@ -42,7 +42,7 @@ class Trie:
 
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
-        # DFS solution (using Tries) + cache -> Time O(N^3 + M)
+        # DFS solution (using Tries) + cache -> Time O(N^3 + M).
         # Better O(N^2) solutions available in https://leetcode.com/problems/word-break/discuss/1455100/Python-3-solutions%3A-Top-down-DP-Bottom-up-DP-then-Optimised-with-Trie-Clean-and-Concise
         trie = Trie()
         for word in wordDict:
